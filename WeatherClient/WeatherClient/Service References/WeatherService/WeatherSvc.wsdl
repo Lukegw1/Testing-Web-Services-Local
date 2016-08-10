@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WeatherSvc" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://kathy-pc/WeatherService/WeatherSvc.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://kathy-pc/WeatherService/WeatherSvc.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWeatherSvc_GetCurrentTemp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTemp" />
+  </wsdl:message>
+  <wsdl:message name="IWeatherSvc_GetCurrentTemp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentTempResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeatherSvc_GetWindSpeed_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWindSpeed" />
+  </wsdl:message>
+  <wsdl:message name="IWeatherSvc_GetWindSpeed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWindSpeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeatherSvc_SendWindSpeed_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendWindSpeed" />
+  </wsdl:message>
+  <wsdl:message name="IWeatherSvc_SendWindSpeed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendWindSpeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWeatherSvc_GetNumberOfArtists_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfArtists" />
+  </wsdl:message>
+  <wsdl:message name="IWeatherSvc_GetNumberOfArtists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfArtistsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IWeatherSvc">
+    <wsdl:operation name="GetCurrentTemp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeatherSvc/GetCurrentTemp" message="tns:IWeatherSvc_GetCurrentTemp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeatherSvc/GetCurrentTempResponse" message="tns:IWeatherSvc_GetCurrentTemp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWindSpeed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeatherSvc/GetWindSpeed" message="tns:IWeatherSvc_GetWindSpeed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeatherSvc/GetWindSpeedResponse" message="tns:IWeatherSvc_GetWindSpeed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendWindSpeed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeatherSvc/SendWindSpeed" message="tns:IWeatherSvc_SendWindSpeed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeatherSvc/SendWindSpeedResponse" message="tns:IWeatherSvc_SendWindSpeed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfArtists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWeatherSvc/GetNumberOfArtists" message="tns:IWeatherSvc_GetNumberOfArtists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWeatherSvc/GetNumberOfArtistsResponse" message="tns:IWeatherSvc_GetNumberOfArtists_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="myEndpoint" type="tns:IWeatherSvc">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCurrentTemp">
+      <soap:operation soapAction="http://tempuri.org/IWeatherSvc/GetCurrentTemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWindSpeed">
+      <soap:operation soapAction="http://tempuri.org/IWeatherSvc/GetWindSpeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendWindSpeed">
+      <soap:operation soapAction="http://tempuri.org/IWeatherSvc/SendWindSpeed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfArtists">
+      <soap:operation soapAction="http://tempuri.org/IWeatherSvc/GetNumberOfArtists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WeatherSvc">
+    <wsdl:port name="myEndpoint" binding="tns:myEndpoint">
+      <soap:address location="http://kathy-pc/WeatherService/WeatherSvc.svc/weatherService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
